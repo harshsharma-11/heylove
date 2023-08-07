@@ -1,0 +1,44 @@
+<html>
+    <head>
+<title>
+    <%=title%>
+</title>
+<link rel="stylesheet" href="./css/login.css">
+    </head>
+<body>
+    
+    <div id="outer">
+   <form action="/create-session" method="POST" >
+    <div id="form">
+<div id="heading">
+    LOGIN
+</div>
+             <div id="third">
+                <div id="email">
+                 E-mail :
+             </div>
+                 <div id ="inpu-email"><input name="email" required type="email" placeholder="Email" autocomplete="new-password" >
+                     </div>
+                     </div>
+             
+
+                     <div id="second">
+                        <div id="password">
+                         Password : 
+                     </div>
+                         <div id ="inpu-pass">
+                         <input name="password"  type="password" placeholder="Password" >
+                         </div>
+                         </div>
+       
+        <div id="fourth">
+            <button type="submit">LOGIN</button>
+                    </div>
+                 
+        </div>
+   </form> 
+   </div>
+
+</body>
+
+</html>

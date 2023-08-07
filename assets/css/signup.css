@@ -1,0 +1,64 @@
+#outer{
+    height:60vh;
+    width:80vh;
+    background:linear-gradient(rgb(239, 160, 51),rgb(137, 211, 215),rgb(142, 201, 90));
+    margin:auto;
+    margin-top: 12vh;
+
+}
+#heading{
+height:20%;
+width:100%;
+text-align: center;
+font-weight: 900;
+font-size: 5vh;
+margin-bottom: 5%;
+}
+#form{
+    padding-top: 10vh;
+    height:80%;
+    width:90%;
+    display:flex;
+    flex-direction: column;
+}
+input{
+    outline: none;
+    height: 60%;
+    font-size: 3vh;
+}
+#first,#second1,#second2,#third{
+    height:20%;
+    width:98%;
+    display: flex;
+}
+
+#name,#email,#password{
+    width:30%;
+    height:80%;
+    text-align:center
+
+}
+#inpu-name,#inpu-pass,#inpu-email{
+    width:50%;
+height:80%;
+text-align: center;
+}
+#fourth{
+    width:80%;
+    height:15%;
+    align-self: center;
+}
+#fourth button{
+    width:30%;
+    height:80%;
+margin-left: 20vh;
+font-size: 2.2vh;
+font-weight: 600;
+
+}
+input::placeholder {
+    /* Customize the placeholder text properties */
+    color: #999; /* Placeholder text color */
+    font-style: italic; /* Italicize the placeholder text */
+    font-size: 14px; /* Placeholder text size */
+  }
