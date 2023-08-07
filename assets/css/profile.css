@@ -1,4 +1,19 @@
-
+body{
+height:100vh;
+width:120vh;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+#header{
+height:18%;
+}
+#main{
+    height:60%;
+}
+#footer{
+    height:20%;
+}
 #two{
     margin-left:10vh;
     width:20vh;

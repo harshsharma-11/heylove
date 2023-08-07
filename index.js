@@ -1,6 +1,6 @@
  const express = require('express');
 const app = express();
-const port =1084;
+const port =1000;
 const path=require('path');
 
 const db=require('./config/mongoose');const userSchema=require('./models/user');
@@ -76,6 +76,8 @@ app.use(passport.session());
 // /////////////////*KYUN LIKHNA H YE CHECK IT***********//
 
 
+
+//this causingstop loading
 //app.use(passportLocal.setAuthenticatedUser);
 
 
@@ -90,11 +92,11 @@ app.use(passport.session());
  app.use('/',require('./routes/users'))
 // app.get('/',function(req,res){
 //     return res.render(
-//         'home',{
-//             title:"CODIAL | LOGIN",
+//         '_header',{
+        
 //         }
 //     )
-// })
+//})
  app.listen(port, function () {
   console.log('Server is running on http://localhost:' + port);
  });

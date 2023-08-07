@@ -5,7 +5,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="one">
+    <div
+     id="header"><%-include('_header')%>
+    </div>  
+    <div id="main">
+      <div id="one">
     <h1>
         Hello my friend <%=name%>;
     </h1>
@@ -23,5 +27,9 @@
      LOG OUT   
     </div>
 </a>
+</div>
+<div id="footer">
+<%-include('_footer')%>
+</div>
 </body>
 </html>
