@@ -1,17 +1,16 @@
  const express = require('express');
 const app = express();
-const port =9176;
+const port =1084;
 const path=require('path');
 
-const db=require('./config/mongoose');
-const userSchema=require('./models/user');
+const db=require('./config/mongoose');const userSchema=require('./models/user');
 
-//const cookieParser=require('cookie-parser');
+
 
 //we require express-session to play with the session 
 const session=require('express-session');
 const passport=require('passport');
- const passportLocal=require('./config/passport-strategy');
+const passportLocal=require('./config/passport-strategy');
 
  //to include sass middleware
  //const sass=require('node-sass-middleware');
@@ -71,7 +70,7 @@ app.set('view engine', 'ejs');
  app.use(passport.initialize());
  //session here is used so that authentication should be preserve for some time i.e session
  //otherwise there created no session and authentication doesn't prevent and we should have to authenticate again
- app.use(passport.session());
+app.use(passport.session());
 
 
 // /////////////////*KYUN LIKHNA H YE CHECK IT***********//
@@ -89,10 +88,17 @@ app.set('view engine', 'ejs');
 //         });
 
  app.use('/',require('./routes/users'))
-
+// app.get('/',function(req,res){
+//     return res.render(
+//         'home',{
+//             title:"CODIAL | LOGIN",
+//         }
+//     )
+// })
  app.listen(port, function () {
   console.log('Server is running on http://localhost:' + port);
  });
+
 
 
 

@@ -42,7 +42,7 @@ module.exports.logout= function(req,res)
     
     
         // User is authenticated, render profile page
-        return res.render('home', {
+        return res.render('profile', {
         
             name: req.user.name,
                   email: req.user.email,
