@@ -23,6 +23,16 @@
         </form>
 
     </section>
+    <section id="showing-feed">
+        <ul>
+<%for(let i of list){%>
+<li>
+    <%= i.content%>
+    <%= i.user%>
+</li>
+<%}%>
+</ul>
+    </section>
 </div>
 <div id="footer">
 <%-include('_footer')%>

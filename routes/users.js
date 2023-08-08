@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const passport=require('../config/passport-strategy');
-
+const post=require('../models/post');
 //const cookieParser = require('cookie-parser');
 
 
@@ -12,11 +12,7 @@ const usersController=require('../controllers/users_controller');
 
 
 router.post('/create',usersController.create);
-router.get('/home',function(req,res){
-    return res.render('home',{
-        title:"HOME || CODEIAL"
-    })
-})
+
 
 /******************************************manual authentication*********************/
 //router.post('/create-session',usersController.createSession);
@@ -38,4 +34,17 @@ router.get('/logout' ,usersController.logout);
 
 router.use('/post',require('./post'));
 
+router.get('/home',async function (req, res) {
+    try {
+      //retrive all objects from Contact colections as find has no object to find
+      const feeds = await post.find({});
+      return res.render('home', {
+        title: "HOME",
+        list: feeds,
+      });
+    } catch (err) {
+      console.log('Error in fetching contacts from the database:', err);
+      return res.status(500).send('Internal Server Error');
+    }
+  })
 module.exports=router;
