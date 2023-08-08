@@ -12,7 +12,11 @@ const usersController=require('../controllers/users_controller');
 
 
 router.post('/create',usersController.create);
-
+router.get('/home',function(req,res){
+    return res.render('home',{
+        title:"HOME || CODEIAL"
+    })
+})
 
 /******************************************manual authentication*********************/
 //router.post('/create-session',usersController.createSession);
@@ -31,5 +35,7 @@ router.get('/signup',passport.alreadyAuthentication,usersController.signup);
 
 router.get('/login',passport.alreadyAuthentication,usersController.login);
 router.get('/logout' ,usersController.logout);
+
+router.use('/post',require('./post'));
 
 module.exports=router;

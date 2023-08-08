@@ -9,12 +9,27 @@ align-items: center;
 #username{
 width:8%;
 
+font-size: 4vh;
+
 }
 
 #logout-icon{
-  width:10%;  
+  width:10%;
+  font-size: 4vh;  
+  
+margin-left:1.5vh;
+color: rgb(228, 236, 198);
+}
+a{
+  color: rgb(228, 236, 198); 
+}
+a:hover{
+color:rgb(46, 183, 137);
 }
 
 #site-name{
    width:80%; 
+   font-size: 5vh;
+   font-weight: 800;
+   color:azure;
 }

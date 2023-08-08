@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>
-        <%=title%>
-    </title>
+    <!-- <link rel="stylesheet" href="./css/home.css"-->
+    <link rel="stylesheet" href="./css/home.css">
+    <title><%=title%></title>
 </head>
 <body>
- helllo   
+    <div
+     id="header"><%-include('_header')%>
+     
+    </div>  
+    <div id="main">
+      
+    <section id="post-feeds">
+        <h2>
+            MY POSTS
+        </h2>
+        <form action="/post/create-post" method="POST" id="new-post-form">
+            
+            <textarea name="content" rows="4" ,cols="30" placeholder="TYPE HERE........."></textarea>
+            <input type='submit' name="post" >
+        </form>
+
+    </section>
+</div>
+<div id="footer">
+<%-include('_footer')%>
+</div>
 </body>
 </html>

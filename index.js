@@ -5,7 +5,8 @@ const path=require('path');
 
 const db=require('./config/mongoose');const userSchema=require('./models/user');
 
-
+const expressLayouts=require('express-ejs-layouts');
+//app.use(expressLayouts);
 
 //we require express-session to play with the session 
 const session=require('express-session');

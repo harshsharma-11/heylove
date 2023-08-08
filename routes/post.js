@@ -1,0 +1,9 @@
+const express=require('express');
+const router=express.Router();
+
+const postControllers=require('../controllers/post_controllers');
+router.post('/create-post',postControllers.create);
+
+//router is exported because if we didn't export it then other routes can't access what this route do
+//let e.g is users.js use post routers do it need to export to make it possible for them
+module.exports=router;
