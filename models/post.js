@@ -5,9 +5,9 @@ type:String,
 required:true,
     },
     user:{
-type:mongoose.Types.ObjectId,
-//type:String,
-required:true,
+        type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+
     }
 },{
     timestamps:true,

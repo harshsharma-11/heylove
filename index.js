@@ -1,6 +1,6 @@
  const express = require('express');
 const app = express();
-const port =1000;
+const port =1020;
 const path=require('path');
 
 const db=require('./config/mongoose');const userSchema=require('./models/user');
@@ -43,7 +43,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-                maxAge: 10 * 60 * 1000 // 10 minutes in milliseconds
+                maxAge: 100 * 60 * 1000 // 10 minutes in milliseconds
             },
             
        //to store session in mongostore so that it remain accessed for sometime      

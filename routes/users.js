@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const passport=require('../config/passport-strategy');
 const post=require('../models/post');
+
 //const cookieParser = require('cookie-parser');
 
 
@@ -36,8 +37,11 @@ router.use('/post',require('./post'));
 
 router.get('/home',async function (req, res) {
     try {
-      //retrive all objects from Contact colections as find has no object to find
-      const feeds = await post.find({});
+      
+      const feeds = await post.find({}).populate('user')/*.populate('user').exec*/;
+       
+
+      
       return res.render('home', {
         title: "HOME",
         list: feeds,

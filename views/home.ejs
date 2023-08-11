@@ -18,7 +18,7 @@
         </h2>
         <form action="/post/create-post" method="POST" id="new-post-form">
             
-            <textarea name="content" rows="4" ,cols="30" placeholder="TYPE HERE........."></textarea>
+            <textarea name="content" rows="30" cols="60" placeholder="TYPE HERE........."></textarea>
             <input type='submit' name="post" >
         </form>
 
@@ -26,10 +26,17 @@
     <section id="showing-feed">
         <ul>
 <%for(let i of list){%>
+    <div id="li-container">
 <li>
     <%= i.content%>
-    <%= i.user%>
+    
+    <% if (i.user) { %>
+        <%= i.user.name %>
+      <% } else { %>
+        User not found for this post.
+      <% } %>
 </li>
+</div>
 <%}%>
 </ul>
     </section>
