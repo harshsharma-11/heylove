@@ -21,12 +21,13 @@ catch(err){
 
 module.exports.deletePost=async function(req,res){
     try{
-const post=await Post.findById(req.body.params);
+const post=await Post.findById(req.params.id);
 //instead of ._id here we use .id to convert the id into string so that we can compare easily
+if(post){
 if(post.user==req.user.id){
 
     
-
+    await Post.findByIdAndDelete(req.params.id);
     Comment.deleteMany({post:req.params.id})
 return res.redirect('back');
 }
@@ -35,6 +36,10 @@ else{
 }
 
     }
+    else{
+        console.log("null");
+    }
+}
     catch(err){
 console.log("error in deleting");
     }
@@ -70,6 +75,35 @@ console.log(newComment);
     }
 };
 
+
+
+
+module.exports.deleteComment=async function(req,res){
+    try{
+        const comment=await Comment.findById(req.params.id);
+        if(comment){
+        if(comment.user==req.user.id){
+            const postId=comment.post;
+           await Comment.findByIdAndDelete(req.params.id);
+          await  Post.findByIdAndUpdate(postId,{$pull : {comments:req.params.id}});
+
+        //   ,function(err,post){
+        //        return  res.redirect('back');
+        //     })
+
+        return res.redirect('back');
+
+        }
+        
+    }
+    else{
+        console.log("null");
+    }
+    }
+    catch(err){
+        console.log("error in deleting the comment",err);
+    }
+}
 
 
 

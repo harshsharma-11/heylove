@@ -38,16 +38,19 @@ module.exports.logout= function(req,res)
 // Render profile page
 
 
-  module.exports.profile = function(req, res) {
+  module.exports.profile = async function(req, res) {
     
     
         // User is authenticated, render profile page
-        return res.render('profile', {
+        console.log(req.params.id);
+        const user=await User.findById(req.params.id);
+        console.log(user);
+             return res.render('profile', {
         
-            name: req.user.name,
-                  email: req.user.email,
-                  password: req.user.password,
-                  Username: req.user.name,
+            name: user.name,
+                  email: user.email,
+                  password: user.password,
+                  Username: user.name,
                   title: "CODIAL | PROFILE",
 
     });
@@ -98,7 +101,7 @@ module.exports.createSession=function(req, res) {
   console.log('hi');
 
   
-return res.redirect('/profile');
+return res.redirect('/home');
 
 
   }
