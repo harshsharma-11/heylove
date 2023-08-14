@@ -26,58 +26,30 @@ body{
         color:black;
         text-decoration: none;
     }
-    
+    a{
+        text-decoration: none;
+    }
     #li-container{
-        width:70vh;
-        height:auto;
-        
+        width:40vh;
+        height:10vh;
+        background-color: black;
         color:azure;
         font-size: 3.5vh;
         margin-top: 10vh;
-        padding :2vh;
-list-style: none;
-    }
-    #comments{
-        height: auto;
-        width: 60vh;
-        background-color: rgb(232, 232, 239);
-        color: rgb(16, 12, 12);
-        padding: 1vh;
-        overflow-wrap: break-word;
+
     }
     
-    #post-creator{
-        width:auto;
-               font-size: 3vh;
-        color: black;
+    #comment:hover{
+cursor: pointer;
     }
-    #form{
-        margin:1vh;
-        
+
+    #comm-but{
+        width:6vh;
+        height:3.4vh;
     }
-#post-content{
-    background-color: black;
-    font-size: 3.2vh;
-}
-#each-comment{
-    border-bottom: 1.5px solid slategray;
-    list-style: none;
-    width:auto;
-}
-#comment-content{
-height:auto;
-color: rgb(39, 29, 29);
+    #comm-pos{
 
-
-}
-#comment-user{
-    width:auto;
-    font-size: 2.5vh;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-color: rgb(25, 24, 24);
-font-weight: 700;
-}
-a{
-    color: blue;
-    text-decoration: none;
-}
+        width:20vh;
+        height:8vh;
+       
+    }

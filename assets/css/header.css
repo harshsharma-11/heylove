@@ -20,7 +20,9 @@ font-size: 4vh;
 margin-left:1.5vh;
 color: rgb(228, 236, 198);
 }
-
+a{
+  color: rgb(228, 236, 198); 
+}
 a:hover{
 color:rgb(46, 183, 137);
 }
