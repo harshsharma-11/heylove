@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const passport=require('../config/passport-strategy');
 const post=require('../models/post');
+const User=require('../models/user');
 
 //const cookieParser = require('cookie-parser');
 
@@ -37,14 +38,28 @@ router.use('/post',require('./post'));
 
 router.get('/home',async function (req, res) {
     try {
+    
+      //user here is the field user of Post model
+      //with .populate user now user contains the data instead of containg the object id but now data of thatid
+      const feeds = await post.find({}).populate('user')
       
-      const feeds = await post.find({}).populate('user')/*.populate('user').exec*/;
+      .populate({
+        //commments are fileld of Post model
+        path:'comments',
+        populate:{
+          //user here is field user of Comment model
+          path:'user',
+        }
+      });
+      
+      const users=await User.find({});
        
 
       
       return res.render('home', {
         title: "HOME",
-        list: feeds,
+        post_lists: feeds,
+        friends_list:users,
       });
     } catch (err) {
       console.log('Error in fetching contacts from the database:', err);
