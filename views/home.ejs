@@ -112,9 +112,9 @@
         <h1 style="font-size:4vh;font-weight: 800;font-family:cursive;">MY FRIENDS</h1>
         <div id="friends-list">
             <ul>
-<%for( const friend of friends_list){%>
+<%for( const post of post_lists){%>
     <li>
-    <a href="/profile/idofthatuser"><%=friend.name%></a>
+    <a href="/profile/idofthatuser"><%=post.user.name%></a>
 </li>
 <%}%>
 </ul>

@@ -1,4 +1,5 @@
 const Post=require('../models/post');
+const Comment=require('../models/comment');
 
 module.exports.create= async function(req,res){
 
@@ -18,25 +19,27 @@ catch(err){
 }
 
 
-const Comment=require('../models/comment');
-// module.exports.createComment= async function(req,res){
+module.exports.deletePost=async function(req,res){
+    try{
+const post=await Post.findById(req.body.params);
+//instead of ._id here we use .id to convert the id into string so that we can compare easily
+if(post.user==req.user.id){
+
     
-//     Post.findById(req.body.post, function(err,post){
-//         if(post){
-//             Comment.create({
-//                 content:req.body.comment,
-//                 post:req.post_id,
-//                 user:req.user._id,
-//             },
-//             function(err,comment){
-//                 post.comments.push(comment);
-//                 post.save();
-//                 res.redirect('/home');
-//             }
-//             );
-//         }
-//     });
-// }
+
+    Comment.deleteMany({post:req.params.id})
+return res.redirect('back');
+}
+else{
+    return res.redirect('back');
+}
+
+    }
+    catch(err){
+console.log("error in deleting");
+    }
+}
+
 
 module.exports.createComment = async function(req, res) {
     try {

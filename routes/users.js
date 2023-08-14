@@ -38,13 +38,21 @@ router.use('/post',require('./post'));
 router.get('/home',async function (req, res) {
     try {
       
-      const feeds = await post.find({}).populate('user')/*.populate('user').exec*/;
+      
+      const feeds = await post.find({}).populate('user')
+      .populate({
+        path:'comments',
+        populate:{
+          path:'user'
+
+        }
+      });
        
 
       
       return res.render('home', {
         title: "HOME",
-        list: feeds,
+        post_lists: feeds,
       });
     } catch (err) {
       console.log('Error in fetching contacts from the database:', err);
