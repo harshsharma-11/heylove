@@ -1,0 +1,40 @@
+
+<li style="list-style: none;">
+    <div id="each-comment">
+        <div id="comment-user">
+        <%=comment.user.name%> 
+    </div>
+        <div id="comment-content">
+            <%=comment.content%> 
+        </div>
+           
+        <% if(comment.user.id==locals.user.id){%>
+            <a href="/post/deleteComment/<%=comment.id%>">Y</a>
+            
+                <%}%>
+       
+
+    </div>
+
+</li>
+
+
+            <%}%>
+        </ul>
+      </div>
+      <!-------------------------------->
+</li>
+</div>
+<%}%>
+</ul>
+    </section>
+
+    <!-------------------FRIENDS LIST--------->
+    <section id="friends">
+        <h1 style="font-size:4vh;font-weight: 800;font-family:cursive;">MY FRIENDS</h1>
+        <div id="friends-list">
+            <ul>
+<%for( const friend of friends_list){%>
+    <li>
+    <a href="/profile/idofthatuser"><%=friend.name%></a>
+</li>
