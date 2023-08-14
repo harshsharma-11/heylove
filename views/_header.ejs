@@ -9,10 +9,17 @@
 <body>
     <div id="header">
         <div id="site-name">CODEIAL</div>
+        <% if (locals.user){ %>  
+             
+        <div id="username"><a href="/profile" style="cursor:pointer"><%=user.name%></a></div>
+        <div id="logout-icon">|| <a href="/logout" style="cursor:pointer"> LOGOUT</a> </div>
+        <% } else{ %>
+        
         <div id="username"><a href="/signup" style="cursor:pointer">SIGN UP</a></div>
         <div id="logout-icon">|| <a href="/login" style="cursor:pointer">  LOGIN</a> </div>
-        </div>
-    
+        
+   <% }%>
+</div>
 </body>
 </html>
 

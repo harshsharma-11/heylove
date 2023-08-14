@@ -35,5 +35,21 @@ body{
         background-color: black;
         color:azure;
         font-size: 3.5vh;
-        margin-top: 2vh;
+        margin-top: 10vh;
+
+    }
+    
+    #comment:hover{
+cursor: pointer;
+    }
+
+    #comm-but{
+        width:6vh;
+        height:3.4vh;
+    }
+    #comm-pos{
+
+        width:20vh;
+        height:8vh;
+       
     }

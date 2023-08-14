@@ -11,7 +11,8 @@
      
     </div>  
     <div id="main">
-      
+    
+    <%  if(locals.user){%>
     <section id="post-feeds">
         <h2>
             MY POSTS
@@ -26,23 +27,44 @@
     <section id="showing-feed">
         <ul>
 <%for(let i of list){%>
-    <div id="li-container">
+    <div id="li-container" >
 <li>
+    <div>
     <%= i.content%>
-    
+    </div>
+    <div>
     <% if (i.user) { %>
         <%= i.user.name %>
       <% } else { %>
         User not found for this post.
       <% } %>
+    </div>
+    
+      <!---------------------------->
+      <% if(locals.user){ %>
+        <div id="comment" >comment</div>
+      <div id="form">
+      <form action="/post/comment" method="POST" id="new-comment-form">
+            
+        <input id="comm-pos" type="text" placeholder="Add commnets" name ="comment" >
+        <input name="post_id" type="hidden" value="<%=i._id%>">
+        <input  id="comm-but" type="submit" name="addcomment" value="head" style="background-color: aqua; z-index: 10;">
+    </form>
+</div>
+    <%}%>
+      <!---------------------------->
 </li>
 </div>
 <%}%>
 </ul>
     </section>
+<%}%>
+
+        
 </div>
 <div id="footer">
 <%-include('_footer')%>
 </div>
+
 </body>
 </html>

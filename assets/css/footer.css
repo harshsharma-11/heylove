@@ -6,6 +6,8 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
+    /* position: fixed;
+    bottom: 1vh; */
 }
 #text{
     width:30%;

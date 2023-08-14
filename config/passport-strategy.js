@@ -89,7 +89,8 @@ passport.setAuthenticatedUser=(req,res,next)=>{
             if(req.isAuthenticated()){
                 /*******we are sending req.user to the views******** */
                 res.locals.user=req.user;
-                next();
+                
             }
+            next();
             }
 module.exports=passport;

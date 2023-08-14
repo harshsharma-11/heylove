@@ -1,6 +1,6 @@
  const express = require('express');
 const app = express();
-const port =1020;
+const port =1120;
 const path=require('path');
 
 const db=require('./config/mongoose');const userSchema=require('./models/user');
@@ -14,7 +14,7 @@ const passport=require('passport');
 const passportLocal=require('./config/passport-strategy');
 
  //to include sass middleware
- //const sass=require('node-sass-middleware');
+//const sass=require('node-sass-middleware');
 
 // /***************************/
 //to store the session
@@ -78,17 +78,9 @@ app.use(passport.session());
 
 
 
-//this causingstop loading
-//app.use(passportLocal.setAuthenticatedUser);
 
+app.use(passportLocal.setAuthenticatedUser);
 
-// app.use((req,res,next)=>{
-//         if(req.isAuthenticated()){
-//             /*******we are sending req.user to the views******** */
-//             res.locals.user=req.user;
-//             next();
-//         }
-//         });
 
  app.use('/',require('./routes/users'))
 // app.get('/',function(req,res){
