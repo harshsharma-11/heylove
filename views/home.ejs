@@ -12,8 +12,6 @@
     </div>  
     <div id="main">
     
-
-        <!------locals .user is liye check kiya kyunki jo login nhi h unko feeds nhi dikhani------>
     <%  if(locals.user){%>
     <section id="post-feeds">
         <h2>
@@ -61,46 +59,17 @@
     
       <!----------creating the comment------------------>
       <% if(locals.user){ %>
-        <!-- <div id="comment" >comment</div> -->
+        <div id="comment" >comment</div>
       <div id="form">
       <form action="/post/comment" method="POST" id="new-comment-form">
             
         <input id="comm-pos" type="text" placeholder="Add commnets" name ="comment" >
-        <input name="post_id" type="hidden" value="<%=post._id%>">
-        <input  id="comm-but" type="submit" name="addcomment" value="ADD" style="background-color: aqua; z-index: 10;">
+        <input name="post_id" type="hidden" value="<%=i._id%>">
+        <input  id="comm-but" type="submit" name="addcomment" value="head" style="background-color: aqua; z-index: 10;">
     </form>
 </div>
     <%}%>
-
-
-      <!---------displaying the comments------------------->
-      <div id="comments">
-        <ul>
-           <% for(let comment  of post.comments){%>
-<li style="list-style: none;">
-    <div id="each-comment">
-        <div id="comment-user">
-        <%=comment.user.name%> 
-    </div>
-        <div id="comment-content">
-            <%=comment.content%> 
-        </div>
-           
-        <% if(comment.user.id==locals.user.id){%>
-            <a href="/post/deleteComment/<%=comment.id%>">Y</a>
-            
-                <%}%>
-       
-
-    </div>
-
-</li>
-
-
-            <%}%>
-        </ul>
-      </div>
-      <!-------------------------------->
+      <!---------------------------->
 </li>
 </div>
 <%}%>
